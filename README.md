@@ -24,7 +24,7 @@ Optional:
 #### Example:
 --square_size 0.025 for 25 mm squares, --cols 10 --rows 7 for an 11×8 board.
 
-### Exttrinsic calibration
+### Extrinsic calibration
 ```bash
 python extrinsic_calibration.py \
     --image <path_to_road_board_image> \
@@ -39,3 +39,18 @@ Optional:
 
 #### Example:
 --square_size 0.04 for 40 mm squares, --cols 6 --rows 4 for a 7×5 board.
+
+### Generate BEV
+```bash
+python generate_bev.py \
+    --image photo.jpg \
+    --calibration calibration_extrinsics.npz \
+```
+
+Optional:
+1.   --extent_x 4 \ # half width (left/right in metres)
+2.   --extent_y 6 \ # forward distance in metres
+3.   --resolution 200 \
+4.   --grid 0.5 \
+5.   --output bev_output.jpg \
+6.   --show
