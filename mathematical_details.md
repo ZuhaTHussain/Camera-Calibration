@@ -96,7 +96,7 @@ Image plane $x \sim K[R|t] X_w$
 
 As $Z=0$,
 
-$x \sim K [r_1 \; r_2 \; t] \begin{bmatrix} X \\ Y \\ 1 \end{bmatrix}$
+$$ x \sim K [r_1 \; r_2 \; t] \begin{bmatrix} X \\ Y \\ 1 \end{bmatrix}^T $$
 
 We can represent the Homography matrix as
 
@@ -117,7 +117,7 @@ $$H_i = K \cdot (\text{pose}_i)$$
 So, the pose changes per image and $K$ stays constant. This gives us
 constraints on $K$.
 
-Each $H_i$ contains $\begin{bmatrix} h_1 & h_2 & h_3 \end{bmatrix}$
+Each $H_i$ contains $[h_1 \; h_2 \; h_3]$
 
 Theoretically, $h_1 = K r_1$, $h_2 = K r_2$ and $h_3 = K r_3$ (but note that
 $r_3$ is not directly used because $Z=0$).
@@ -231,7 +231,11 @@ $$
 
 We have reduced 3D to a 2D plane.
 
-Now, $x \sim K [r_1 \; r_2 \; t] \begin{bmatrix} X \\ Y \\ 1 \end{bmatrix}$ and $r_3$ is not needed because $Z=0$.
+Now, 
+
+$$ x \sim K [r_1 \; r_2 \; t] \begin{bmatrix} X \\ Y \\ 1 \end{bmatrix}^T $$
+
+and $r_3$ is not needed because $Z = 0$.
 
 The homography matrix $H = K [r_1 \; r_2 \; t]$ so $x \sim H X_w$.
 
@@ -242,7 +246,7 @@ Now, $H = K [r_1 \; r_2 \; t]$ so $K^{-1} H = [r_1 \; r_2 \; t]$ but this is onl
 unknown scale factor $\lambda$. Let's call the unscaled matrix
 
 $$
-[\,\tilde{r}_1 \;\; \tilde{r}_2 \;\; \tilde{t}\,] = K^{-1} H
+[\tilde{r}_1 \; \tilde{r}_2 \; \tilde{t}\,] = K^{-1} H
 $$
 
 Because the homography $H$ is defined only up to scale, the columns $\tilde{r}_1,\ \tilde{r}_2,\ \tilde{t}$ are also scaled. We need to recover the true $r_1, r_2, t$.
