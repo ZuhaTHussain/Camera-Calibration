@@ -1,4 +1,4 @@
-# Navigating Experiments Done
+# Navigation
 
 ## Initial Experiments
 ### Go Pro Settings
